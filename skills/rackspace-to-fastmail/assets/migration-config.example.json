@@ -1,0 +1,15 @@
+{
+  "source_account": "source@example.invalid",
+  "destination_account": "destination@example.invalid",
+  "source_host": "secure.emailsrvr.com",
+  "destination_host": "imap.fastmail.com",
+  "replace_destination_authorized": false,
+  "background_import_disabled": false,
+  "date_policy_reviewed": false,
+  "folder_mapping_reviewed": false,
+  "visual_date_test_passed": false,
+  "cutover_complete": false,
+  "repair_received_days": [],
+  "duplicate_date_policy": "stop",
+  "duplicate_flag_policy": "stop"
+}

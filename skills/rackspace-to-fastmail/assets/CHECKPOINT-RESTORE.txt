@@ -1,0 +1,29 @@
+MAIL MIGRATION CHECKPOINT — RESTORE
+
+This holds the local Rackspace source snapshot and migration records.
+It is NOT a complete backup of later Fastmail-native mail.
+Read CHECKPOINT.json for the source timestamp and last catch-up mode.
+Keep the password in your password manager; it is not in this archive.
+
+1. Verify the encrypted file using its companion checksum:
+   sha256sum -c mail-checkpoint.tar.gz.gpg.sha256
+   (On macOS, use shasum -a 256 -c instead.)
+2. In a new private directory, decrypt interactively:
+   gpg --output restored.tar.gz --decrypt /path/to/mail-checkpoint.tar.gz.gpg
+3. List the tar before extracting into that new directory:
+   tar -tzf restored.tar.gz
+   tar -xzf restored.tar.gz
+   The top directory has the original migration work-directory name.
+4. Original EML files and inventory.sqlite3 are under source-mail/.
+   report.json records folders; active=1 rows identify the current snapshot.
+   Inactive originals may also be retained. Do not mistake them for live mail.
+5. For convenient mail-client import, from the restored working directory:
+   python3 export_mbox.py /path/to/new-export-folder
+   This verifies source checksums and counts and exports MBOX plus folder-map.json.
+   Import using a mail reader with MBOX support and verify a sample attachment.
+   Keep raw EML + metadata as the canonical copy; MBOX is a convenience export.
+6. Restoring locally does not require provider credentials. Do not run reset,
+   upload or catch-up merely to read the archive. Those commands contact servers.
+7. The decrypted tar, extracted folder and MBOX export contain plaintext email.
+   Remove only those temporary copies when you have finished and want them gone.
+   Keep the verified encrypted archive, checksum, and separately held password.

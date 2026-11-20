@@ -1,0 +1,29 @@
+# Python tooling
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.DS_Store
+
+# Migration data belongs outside this repository.
+source-mail/
+migration-config.json
+account-binding.json
+frozen-policy.json
+migration-plan.json
+fastmail-*.json
+catch-up.json
+CHECKPOINT.json
+*.sqlite3
+*.sqlite3-*
+*.eml
+*.mbox
+*.gpg
+*.tar
+*.tar.gz
+*.zip
+*.lock
+*.partial
+*.log
+.env
+.env.*
